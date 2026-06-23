@@ -39,3 +39,45 @@ section {
     padding: 20px;
     border-radius: 10px;
 }
+/* ===== ĐÈN KÉO QUÂN ===== */
+
+.scene{
+    width:300px;
+    height:300px;
+    margin:50px auto;
+    perspective:1000px;
+}
+
+.carousel{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:rotate 12s linear infinite;
+}
+
+.carousel img{
+    position:absolute;
+    width:180px;
+    height:220px;
+    left:60px;
+    top:40px;
+    object-fit:cover;
+    border:4px solid white;
+    border-radius:10px;
+    transform:rotateY(calc(var(--i) * 60deg)) translateZ(250px);
+    transition:.3s;
+}
+
+.carousel img:hover{
+    transform:rotateY(calc(var(--i) * 60deg)) translateZ(250px) scale(1.08);
+}
+
+@keyframes rotate{
+    from{
+        transform:rotateY(0deg);
+    }
+    to{
+        transform:rotateY(360deg);
+    }
+}
