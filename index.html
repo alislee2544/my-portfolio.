@@ -1,32 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lê Văn Thành Đạt - Portfolio</title>
-    <title> ĐÈN KÉO QUÂN </title>
+    <title>Bài tập 33 - Đèn Kéo Quân</title>
+    <!-- Nhúng font chữ từ bài 32 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<nav>
-    <a href="index.html">Trang chủ</a><br>
-    <a href="about.html">Giới thiệu</a><br>
-    <a href="contact.html">Liên hệ</a>
-</nav>
-<h2> Đèn Kéo Quân </h2>
- <div class="scene">
-    <div class="carousel" id="carousel">
-        <img src="img1.jpg" style="--i:0;">
-        <img src="img2.jpg" style="--i:1;">
-        <img src="img3.jpg" style="--i:2;">
-        <img src="img4.jpg" style="--i:3;">
-        <img src="img5.jpg" style="--i:4;">
-        <img src="img6.jpg" style="--i:5;">
+<header id="site-header">
+    <nav>
+        <div class="logo">thànhđạt<span>.bài33</span></div>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="wrap" style="text-align: center;">
+            <div class="eyebrow">Kiểm tra giữa kỳ LTW</div>
+            <h2>Đèn Kéo Quân 3D</h2>
+            <p class="bio" style="margin: 10px auto;">Đưa chuột vào hình ảnh để đèn dừng lại. Rê chuột ra để đèn quay tiếp.</p>
+            
+            <div class="scene">
+                <div class="carousel" id="carousel">
+                    <!-- Bạn chép 6 ảnh vào thư mục images và đổi tên tương ứng nhé -->
+                    <img src="images/image1.jpg" style="--i:0;" alt="Ảnh 1">
+                    <img src="images/image2.jpg" style="--i:1;" alt="Ảnh 2">
+                    <img src="images/image3.jpg" style="--i:2;" alt="Ảnh 3">
+                    <img src="images/image4.jpg" style="--i:3;" alt="Ảnh 4">
+                    <img src="images/image5.jpg" style="--i:4;" alt="Ảnh 5">
+                    <img src="images/image6.jpg" style="--i:5;" alt="Ảnh 6">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="wrap">
+        <span>© 2026 Lê Văn Thành Đạt. Bài tập 33 - Lập trình Web.</span>
     </div>
- </div>
-    <script src="js/script.js"></script>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>
