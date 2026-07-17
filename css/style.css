@@ -1,83 +1,90 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+  --paper:#FAF6EC;
+  --grid-line: rgba(43,58,85,0.07);
+  --ink:#211D1A;
+  --navy:#2B3A55;
+  --accent:#E8823D;
+  --muted: rgba(33,29,26,0.62);
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+*{box-sizing:border-box; margin:0; padding:0;}
+
+body{
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color:var(--ink);
+  font-family:'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-nav {
-    background: #333;
-    padding: 15px;
-    text-align: center;
+main { flex: 1; }
+
+h1,h2,h3 { font-family:'Fredoka', sans-serif; line-height:1.05; }
+img { max-width:100%; display:block; }
+.wrap { max-width:1080px; margin:0 auto; padding:0 32px; }
+
+.eyebrow {
+  font-size:13.5px; letter-spacing:0.18em; text-transform:uppercase;
+  font-weight:700; color:var(--accent);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
+/* ---------- Nav ---------- */
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(250,246,236,0.88); backdrop-filter: blur(8px);
+  border-bottom:2px solid var(--ink);
+}
+nav{ display:flex; align-items:center; justify-content:center; padding:20px 32px; max-width:1080px; margin:0 auto;}
+.logo{ font-family:'Fredoka', sans-serif; font-weight:700; font-size:22px;}
+.logo span{ color:var(--accent); font-weight:500;}
+
+/* ---------- Hero / Tiêu đề ---------- */
+.hero{ padding:60px 0 60px; }
+.hero h2{ font-size:clamp(32px,5.4vw,56px); font-weight:700; margin:10px 0 10px;}
+.hero .bio{ color:var(--muted); font-size:16px; line-height:1.7; max-width:600px;}
+
+/* ---------- ĐÈN KÉO QUÂN 3D ---------- */
+.scene {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin-top: 60px;
+    perspective: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-header {
-    background: #555;
-    color: white;
-    text-align: center;
-    padding: 40px;
+.carousel {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    transform-style: preserve-3d;
+    animation: spin 15s linear infinite; /* Thời gian quay 15s */
 }
 
-section {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+.carousel img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--accent); /* Bóng đổ phong cách bài 32 */
+    /* Dùng biến --i trong HTML để tự tính góc xoay cho 6 mặt (60 độ/mặt) */
+    transform: rotateY(calc(var(--i) * 60deg)) translateZ(250px);
+    background-color: #fff;
 }
 
-.project {
-    background: white;
-    margin: 10px 0;
-    padding: 20px;
-    border-radius: 10px;
-}
-/* ===== ĐÈN KÉO QUÂN ===== */
-
-.scene{
-    width:300px;
-    height:300px;
-    margin:50px auto;
-    perspective:1000px;
+@keyframes spin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
 }
 
-.carousel{
-    width:100%;
-    height:100%;
-    position:relative;
-    transform-style:preserve-3d;
-    animation:rotate 12s linear infinite;
-}
-
-.carousel img{
-    position:absolute;
-    width:180px;
-    height:220px;
-    left:60px;
-    top:40px;
-    object-fit:cover;
-    border:4px solid white;
-    border-radius:10px;
-    transform:rotateY(calc(var(--i) * 60deg)) translateZ(250px);
-    transition:.3s;
-}
-
-.carousel img:hover{
-    transform:rotateY(calc(var(--i) * 60deg)) translateZ(250px) scale(1.08);
-}
-
-@keyframes rotate{
-    from{
-        transform:rotateY(0deg);
-    }
-    to{
-        transform:rotateY(360deg);
-    }
-}
+/* ---------- Footer ---------- */
+footer{ border-top:2px solid var(--ink); padding:30px 0; font-size:13.5px; color:var(--muted); text-align:center; }
